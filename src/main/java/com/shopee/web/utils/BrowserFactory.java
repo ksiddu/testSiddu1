@@ -26,13 +26,18 @@ public class BrowserFactory {
 			driverPath = getPlatformSpecificDriverPath();
 			System.setProperty("webdriver.chrome.driver", driverPath);
 
-			//ChromeOptions options = new ChromeOptions();
-			//options.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
-			//options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
-			//options.addArguments("--disable-notifications");
+			 ChromeOptions options = new ChromeOptions();
+			 options.addArguments("--no-sandbox"); 
+			 options.addArguments("disable-infobars");
+			 options.addArguments("--disable-extensions");
+			 options.addArguments("--disable-notifications");
+			 options.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+			 options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
+			 options.setExperimentalOption("useAutomationExtension", false);
+			 
 
-			//driver = new ChromeDriver(options);
-			driver = new ChromeDriver();
+			 driver = new ChromeDriver(options);
+			//driver = new ChromeDriver();
 		} else if (browserType.contentEquals("firefox")) {
 			s = s + "/exefiles/mac/geckodriver";
 			System.setProperty("webdriver.gecko.driver", s);

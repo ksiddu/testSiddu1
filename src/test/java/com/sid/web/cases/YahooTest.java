@@ -3,6 +3,7 @@ package com.sid.web.cases;
 import org.junit.jupiter.api.Test;
 
 import com.shopee.web.utils.BaseTest;
+import static org.junit.jupiter.api.Assertions.*;
 
 class YahooTest extends BaseTest {
 
@@ -19,6 +20,7 @@ class YahooTest extends BaseTest {
 
 		System.out.println("expectedTitle is : " + expectedTitle);
 		System.out.println("actualTitle is : " + actualTitle);
+		assertEquals(actualTitle, expectedTitle);
 	}
 
 }
